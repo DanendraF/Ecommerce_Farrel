@@ -222,10 +222,10 @@
                                     <li>
                                         <img src="../assets/images/gif/truck.png" class="img-fluid blur-up lazyload"
                                             alt="image">
-                                        <span class="lang">Free shipping for orders above $500 USD</span>
+                                        <span class="lang">Free shipping for orders above ...</span>
                                     </li>
                                 </ul>
-
+{{--
                                 <div class="mt-2 mt-md-3 border-product">
                                     <h6 class="product-title hurry-title d-block">Hurry Up! Left</h6>
                                         @if ($product->stock_status=='instock')
@@ -253,9 +253,9 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="border-product">
+                                {{-- <div class="border-product">
                                     <h6 class="product-title d-block">share it</h6>
                                     <div class="product-icon">
                                         <ul class="product-social">
@@ -286,7 +286,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
+                                
                             </div>
                         </div>
                     </div>

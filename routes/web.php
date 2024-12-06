@@ -32,7 +32,7 @@ Route::delete('/cart/clear', [CartController::class, 'clearCart'])->name('cart.c
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/my-account', [UserController::class, 'index'])->name('user.index');
+    Route::get('/my-account', [UserController::class, 'index'])->name('users.index');
 });
 
 Route::middleware('auth','auth.admin')->group(function () {
