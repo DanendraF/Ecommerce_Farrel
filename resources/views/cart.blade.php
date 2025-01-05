@@ -139,8 +139,9 @@
 
                     <div class="col-lg-4 col-sm-6 ">
                         <div class="checkout-button">
-                            <a href="checkout" class="btn btn-solid-default btn fw-bold">
-                                Check Out <i class="fas fa-arrow-right ms-1"></i></a>
+                            <a href="{{ route('checkout', ['orderId' => $orderId]) }}" class="btn btn-solid-default btn fw-bold">
+                                Check Out <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
                         </div>
                     </div>
 

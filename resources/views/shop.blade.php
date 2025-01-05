@@ -358,7 +358,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)" class="wishlist">
+                                            <a href="javascript:void(0)" onclick="addProductToWishlist({{$product->id}}, '{{$product->name}}',1,{{$product->regular_price}})" class="wishlist">
                                                 <i data-feather="heart"></i>
                                             </a>
                                         </li>
@@ -533,5 +533,45 @@
             $("#categories").val(categories);
             $("#frmFilter").submit();
         }
+
+        function addProductToWishlist(id, name, quantity, price) {
+            $.ajax({
+                url: "{{ route('wishlist.store') }}",
+                type: "POST",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    id: id,
+                    name: name,
+                    quantity: quantity,
+                    price: price
+                },
+                success: function (data) {
+                    if(data.status == 200)
+                {
+                    getCartWishlistCount();
+                    $.notify({
+                        icon: 'fa fa-check',
+                        title: 'Success!',
+                        message: 'Product added to wishlist successfully!'
+                    })
+                }
+            });
+        }
+
+        function getCartWishlistCount()
+        {
+            $.ajax({
+                type:"GET",
+                url:"{{ route('shop.cart.wishlist.count')}}",
+                success: function(data){
+                    if(data.status==200)
+                    {
+                        $("cart-count").html(data.cartCount);
+                        $("wishlist-count").html(data.wishlistCount);
+                    }
+                }
+            })
+        }
+
     </script>
 @endpush
